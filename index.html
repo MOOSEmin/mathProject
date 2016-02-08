@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Demo: Cantina Negrar preloader deconstruction</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
+
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	<style type="text/css">
+    body{
+        color:black;
+        background-color:aqua, black;
+    }
+	.back-link a {
+		color: #4ca340;
+		text-decoration: none; 
+		border-bottom: 1px #4ca340 solid;
+	}
+	.back-link a:hover,
+	.back-link a:focus {
+		color: #408536; 
+		text-decoration: none;
+		border-bottom: 1px #408536 solid;
+	}
+	h1 {
+		height: 100%;
+		/* The html and body elements cannot have any padding or margin. */
+		margin: 0;
+		font-size: 14px;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 32px;
+		margin-bottom: 3px;
+	}
+	.entry-header {
+		text-align: left;
+		margin: 0 auto 50px auto;
+		width: 80%;
+        max-width: 978px;
+		position: relative;
+		z-index: 10001;
+	}
+	#demo-content {
+		padding-top: 100px;
+	}
+	</style>
+</head>
+<body class="demo">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+	<!-- Demo content -->			
+	<div id="demo-content">
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
+
+    <div style="width:1200px; margin:auto;">
+        <H2 align="center">Trigonometry in Nature</H2>
+        <H3 align="center">
+            Sinusoidal Waves as Sound</h2>
+
+            <p>
+                We've studied the graph of <IMG SRC="sin_eq.gif" BORDER="0" ALT="y=A Sin(w x)" WIDTH="73" HEIGHT="17" ALIGN="absmiddle"> in some detail in class.  You might wonder, "Why do we care?  Does this ever show up in real life?"  The answer is most definitely <em>yes</em>.  Sinusoidal waves (or sine waves for short) have turned out to be essential to understanding how our world works.
+            </p>
+
+            <p>One example is sound: whenever you play an instrument, or listen to your stereo, you're listening to sound waves.  We can think of these as having the shape of sine waves.  For example, if you know anything about playing a piano, the note A above middle C produces a wave shaped like <IMG SRC="a_eq.gif" BORDER="0" ALT="y=A Sin(2pi* 440x)" WIDTH="75" HEIGHT="17" ALIGN="absmiddle">.  If you figure out the period of this function (using the theorem from class) you'll see that this wave has 440 complete cycles every second.  Here's a piece of the graph; click on the link below the picture to hear the sound this function creates.</p>
+
+            <p><center><img src="a.png"><br /><a href="a.wav">Play the note A</a></center></p>
+
+            <p>If we change the number of cycles the wave completes every second -- in other words, if we change the period of the sine wave -- then we change the sound.  Here are the equations and graphs of two other notes, C Sharp (C#) and E.</p>
+
+            <center>
+                <table border="0">
+                    <tr><td><img src="csharp.png"></td><td><img src="e.png"></td></tr>
+                    <tr align="center">
+                        <td><a href="csharp.wav">Play the note C#</a></td>
+                        <td><a href="e.wav">Play the note E</a></td>
+                    </tr>
+                </table>
+            </center>
+
+            <h4 align="center">Adding sounds</h4>
+
+            <p>Of course, when you listen to your stereo you hear more than one note at a time.  How does that work?  Simple: just take the sine functions for all of the notes and add them together.  I've done that here with the notes A, C#, and E.  (If you have any experience as a musician, you'll recognize that we're forming a major chord here.)</p>
+
+
+            <p><center><img src="chord.png"><br /><a href="a_csharp_and_e.wav">Play the chord</a></center></p>
+
+            <p>There are some interesting things about this picture.  First of all, the graph is no longer a sine curve, but there's definitely a pattern to it.  Moreoever, the pattern repeats, so this is still a <em>periodic</em> function.</p>
+
+            <p>
+                Whenever you see an "oscilloscope," for example when you play music using certain programs on a computer, you're really seeing a whole bunch of sine waves added together.  Who knew?
+            </p>
+
+            <h4 align="center">Cancelling Sounds</h4>
+
+            <p>
+                You may have seen advertisements for "noise reducing" headphones.  (If not, you can see a description of one <a href="http://www.thetravelinsider.info/9nov2001.htm">here</a>.)  Here's a rough idea of how they work.  First they figure out what kind of noise is reaching your ears.  Essentially this means it does "curve fitting" like we did in class; it figures out the sine waves of the ambient sounds.  Then it creates <em>additional</em> noise whose sine waves cancel out the ambient sounds.  It's strange, but true: you add together the original noises and new noises, and it all just seems to disappear!
+            </p>
+
+            <p>Here's an example.  On the left you'll see the note A from above.  On the right I've used a <em>phase shift</em> to create another sine wave with the same amplitude and period.  If you listen to the sound file, you'll see that this also corresponds to the note A.</p>
+
+            <center>
+                <table border="0">
+                    <tr valign="center"><td><img src="a.png"></td><td><img src="shifta.png"></td></tr>
+                    <tr align="center">
+                        <td><a href="a.wav">Play the note A</a></td>
+                        <td><a href="shifta.wav">Play the (shifted) note A</a></td>
+                    </tr>
+                </table>
+            </center>
+
+            <p>Suppose your neighbor keeps playing a recording of the original A note, and it's driving you nuts.  It turns out the shifted version above is just the thing to prevent a headache.  Below you can see these two sounds graphed together; that picture should help you believe that, when you add these two sine waves together, they cancel, and you get <em>zero</em>.  Ahhhhh, peace and quiet....</p>
+
+            <center>
+                <table border="0">
+                    <tr valign="center"><td><img src="together.png"></td><td><img src="cancelled.png"></td></tr>
+                    <tr align="center">
+                        <td></td>
+                        <td><a href="cancelled.wav">Play this "sound"</a></td>
+                    </tr>
+                </table>
+            </center>
+            <br />
+            <br />
+            <hr noshade />
+        </div>
+</div>
+	<!-- /Demo content -->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
